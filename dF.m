@@ -1,7 +1,7 @@
 % force generation
 
-function dF = dF(tau_1, tau_2, A, C_N, f)
-global dt;
+function dFdt = dF(t, c_n, f)
+global tau_1 tau_2 A;
 
 
-dF = A * (C_N / (1 + C_N)) - (f / (tau_1 + (tau_2 * (C_N / (1 + C_N)))));
+dFdt = A * (c_n / (1 + c_n)) - (f / (tau_1 + (tau_2 * (c_n / (1 + c_n)))));

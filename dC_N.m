@@ -1,7 +1,7 @@
 % cross-bridge activation
 
-function dC_N = dC_N(t, c_n)
-global n tau_c dt;
+function dC_Ndt = dC_N(t, c_n)
+global n tau_c ;
 
 SUM = 0;
 
@@ -12,4 +12,4 @@ for i = 1:n
     SUM = SUM + sum;
 end
 
-dC_N = (1 / tau_c) * SUM;
+dC_Ndt = (1 / tau_c) * SUM;
