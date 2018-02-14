@@ -25,10 +25,10 @@ else
 end
 
 for i = 1:n
-    sum = exp(-((t - t_stim * (i - 1)) / tau_c)) - (y(1) / tau_c);
+    sum = exp(-((t - t_stim * (i - 1)) / tau_c));
     SUM = SUM + sum;
 end
 
-dy1 = (1 / tau_c) * SUM; 
+dy1 = (1 / tau_c) * SUM - (y(1) / tau_c); 
 dy2 = A * (y(1) / (1 + y(1))) - (y(2) / (tau_1 + (tau_2 * (y(1) / (1 + y(1))))));
 dY = [dy1; dy2];
