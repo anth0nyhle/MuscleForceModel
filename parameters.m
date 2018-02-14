@@ -1,6 +1,6 @@
 % state variables
 C_N0 = 0;
-F0 = 0;
+F_0 = 0;
 
 % free parameters
 % rat muscle model - nonfatigued (fig 3, 1998 paper)
