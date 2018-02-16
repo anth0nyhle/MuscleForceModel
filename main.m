@@ -38,4 +38,5 @@ plot(t, dY(:, 2));
 xlabel('Time (ms)');
 ylabel('Force (N)');
 ylim([0 5+max(dY(:, 2))]);
+suptitle(['IPI = ' num2str(t_stim) ', ' num2str(num_p) ' pulses'])
 
