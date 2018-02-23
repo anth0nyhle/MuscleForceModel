@@ -14,4 +14,3 @@ A = 1.63; % in N/ms; scaling factor for forceand shortening velocity
 % n = 6; % total number of stimulus in train before time t
 % t_stim; % in ms; time of ith stimulation
 % t = 0; % time since beginning of the stimulation train
-
