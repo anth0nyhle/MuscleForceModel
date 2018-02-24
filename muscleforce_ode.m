@@ -20,6 +20,6 @@ for i = 1:n % summation term for t_i of n-pulse
     SUM = SUM + sum;
 end
 
-dF = (1 / tau_c) * SUM - (y(1) / tau_c); % dC_N/dt
-dC_N = A * (y(1) / (K_M + y(1))) - (y(2) / (tau_1 + (tau_2 * (y(1) / (K_M + y(1)))))); % dF/dt
-dY = [dF; dC_N]; % coupling odes
+dC_N = (1 / tau_c) * SUM - (y(1) / tau_c); % dC_N/dt
+dF = A * (y(1) / (K_M + y(1))) - (y(2) / (tau_1 + (tau_2 * (y(1) / (K_M + y(1)))))); % dF/dt
+dY = [dC_N; dF]; % coupling odes

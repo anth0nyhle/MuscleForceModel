@@ -20,9 +20,9 @@ t_stim = input('Interphase Interval (IPI): ');
 
 num_p = input('Number of Stimulation Pulses: ');
 
-t_span = [0 800];
+t_span = [0 3000];
 % int = [C_N0; F_0];
-int = [C_N0; F_0; A; tau_1; K_m];
+int = [C_N0; F_0; A; K_m; tau_1];
 
 options = [];
 
@@ -38,9 +38,24 @@ xlabel('Time (ms)');
 ylabel('C_{N}');
 ylim([0 0.1+max(dY(:, 1))]);
 subplot(2, 1, 2);
-plot(t, dY(:, 5));
+plot(t, dY(:, 2));
 xlabel('Time (ms)');
 ylabel('Force (N)');
 ylim([0 5+max(dY(:, 2))]);
 suptitle(['IPI = ' num2str(t_stim) ', ' num2str(num_p) ' pulses'])
 
+figure(2);
+subplot(3, 1, 1);
+plot(t, dY(:, 3));
+xlabel('Time (ms)');
+ylabel('A');
+
+subplot(3, 1, 2);
+plot(t, dY(:, 4));
+xlabel('Time (ms)');
+ylabel('K_{m}');
+
+subplot(3, 1, 3);
+plot(t, dY(:, 5));
+xlabel('Time (ms)');
+ylabel('tau_{1}');
