@@ -26,8 +26,8 @@ int = [C_N0; F_0; A; K_m; tau_1];
 
 options = [];
 
-% [t, dY] = ode45(@muscleforce_ode, t_span, int, options, t_stim, num_p);
-[t, dY] = ode45(@muscleforcefat_ode, t_span, int, options, t_stim, num_p);
+% [t, dY] = ode45(@muscleforce_ode, t_span, int, options, t_stim, num_p); % non-fatigue model
+[t, dY] = ode45(@muscleforcefat_ode, t_span, int, options, t_stim, num_p); % fatigue model
 % output col vec for t
 % output 2 col matrix for dY, 1st col: C_N, 2nd col: F
 
