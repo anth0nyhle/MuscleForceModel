@@ -7,55 +7,58 @@ global tau_c tau_2 tau_fat A_rest K_mrest tau_1rest alpha_A alpha_K_m alpha_tau_
 % parameters;
 fat_parameters;
 
-t_stim = input('Interphase Interval (IPI): ');
+IPI = input('Interphase Interval (IPI): ');
 % CFT120 = 8.3hz;
 % CFT100 = 10hz;
 % CFT70 = 14.3hz
 % CFT50 = 20hz; 
 % CFT40 = 25hz; 
 % CFT33 = 30hz; 
-% CFT25 = 40hz; 
+% CFT25 = 40hz;
 % CFT20 = 50hz; 
 % CFT10 = 60hz;
 
-num_p = input('Number of Stimulation Pulses: ');
+% num_p = input('Number of Stimulation Pulses: ');
+stim_t = input('Stimulation duration: '); % in ms
 
-t_span = [0 3000];
+t_span = [0 4000];
 % int = [C_N0; F_0];
-int = [C_N0; F_0; A; K_m; tau_1];
+int = [C_N0; F_0; A_rest; K_mrest; tau_1rest];
 
 options = [];
 
 % [t, dY] = ode45(@muscleforce_ode, t_span, int, options, t_stim, num_p); % non-fatigue model
-[t, dY] = ode45(@muscleforcefat_ode, t_span, int, options, t_stim, num_p); % fatigue model
+[t, dY] = ode45(@muscleforcefat_ode, t_span, int, options, IPI, stim_t); % fatigue model
 % output col vec for t
 % output 2 col matrix for dY, 1st col: C_N, 2nd col: F
 
 figure(1);
 subplot(2, 1, 1);
-plot(t, dY(:, 1));
-xlabel('Time (ms)');
+plot(t/1000, dY(:, 1));
+xlabel('Time (s)');
 ylabel('C_{N}');
+% xlim([0 300]);
 ylim([0 0.1+max(dY(:, 1))]);
 subplot(2, 1, 2);
-plot(t, dY(:, 2));
-xlabel('Time (ms)');
+plot(t/1000, dY(:, 2));
+xlabel('Time (s)');
 ylabel('Force (N)');
+% xlim([0 300]);
 ylim([0 5+max(dY(:, 2))]);
-suptitle(['IPI = ' num2str(t_stim) ', ' num2str(num_p) ' pulses'])
+% suptitle(['IPI = ' num2str(IPI) ', ' num2str(stim_t) ' pulses'])
 
 figure(2);
 subplot(3, 1, 1);
-plot(t, dY(:, 3));
-xlabel('Time (ms)');
+plot(t/1000, dY(:, 3));
+xlabel('Time (s)');
 ylabel('A');
 
 subplot(3, 1, 2);
-plot(t, dY(:, 4));
-xlabel('Time (ms)');
+plot(t/1000, dY(:, 4));
+xlabel('Time (s)');
 ylabel('K_{m}');
 
 subplot(3, 1, 3);
-plot(t, dY(:, 5));
-xlabel('Time (ms)');
+plot(t/1000, dY(:, 5));
+xlabel('Time (s)');
 ylabel('tau_{1}');
