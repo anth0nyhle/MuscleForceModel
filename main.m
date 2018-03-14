@@ -31,7 +31,7 @@ options = [];
 % output col vec for t
 % output 2 col matrix for dY, 1st col: C_N, 2nd col: F
 
-Model2_CFT100 = [t(:, 1), dY(:, 2)];
+% Model2_CFT100 = [t(:, 1), dY(:, 2)];
 
 figure(1);
 % subplot(2, 1, 1);
@@ -48,18 +48,18 @@ ylabel('Force (N)');
 ylim([0 100+max(dY(:, 2))]);
 % suptitle(['IPI = ' num2str(IPI) ', ' num2str(stim_t) ' pulses'])
 
-% figure(2);
-% subplot(3, 1, 1);
-% plot(t, dY(:, 3));
-% xlabel('Time (s)');
-% ylabel('A');
-% 
-% subplot(3, 1, 2);
-% plot(t, dY(:, 4));
-% xlabel('Time (s)');
-% ylabel('K_{m}');
-% 
-% subplot(3, 1, 3);
-% plot(t, dY(:, 5));
-% xlabel('Time (s)');
-% ylabel('tau_{1}');
+figure(2);
+subplot(3, 1, 1);
+plot(t, dY(:, 3));
+xlabel('Time (s)');
+ylabel('A');
+
+subplot(3, 1, 2);
+plot(t, dY(:, 4));
+xlabel('Time (s)');
+ylabel('K_{m}');
+
+subplot(3, 1, 3);
+plot(t, dY(:, 5));
+xlabel('Time (s)');
+ylabel('tau_{1}');
