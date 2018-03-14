@@ -1,13 +1,16 @@
 % cross-bridge activation, force generation, coupled
 
-function dY = muscleforce_ode(t, y, t_stim, num_p)
+function dY = muscleforce_ode(t, y, IPI, stim_t)
 global tau_c tau_1 tau_2 A;
 
 SUM = 0;
 K_M = 1;
 R_0 = K_M + 1.04;
 
-n = floor(t / t_stim) + 1; % determine n-pulse in current time, t
+% num_p = floor(stim_t / IPI);
+num_p = stim_t;
+
+n = floor(t / IPI) + 1; % determine n-pulse in current time, t
 
 if n <= num_p
     n = n; % current n-pulse
@@ -16,7 +19,8 @@ else
 end
 
 for i = 1:n % summation term for t_i of n-pulse
-    sum = (1 + (R_0 - 1) * exp(-(t_stim) / tau_c)) * exp(-((t - t_stim * (i - 1)) / tau_c));
+%     sum = exp(-((t - IPI * (i - 1)) / tau_c));
+    sum = (1 + (R_0 - 1) * exp(-(IPI) / tau_c)) * exp(-((t - IPI * (i - 1)) / tau_c));
     SUM = SUM + sum;
 end
 

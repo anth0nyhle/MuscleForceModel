@@ -13,7 +13,8 @@ R_0 = 2;
 % 
 % train = floor(t / train_len) + 1;
 
-num_p = floor(stim_t / IPI);
+% num_p = floor(stim_t / IPI);
+num_p = stim_t;
 
 n = floor(t / IPI) + 1; % determine n-pulse in current time, t
 
