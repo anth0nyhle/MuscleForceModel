@@ -1,0 +1,136 @@
+close all;
+clear;
+
+load('Model3_paratesting.mat');
+
+Model3_Original = reshape(Model3_Original, [2000000, 2]);
+Model3_A_rest_down20 = reshape(Model3_A_rest_down20, [2000000, 2]);
+Model3_A_rest_up20 = reshape(Model3_A_rest_up20, [2000000, 2]);
+Model3_Km_rest_down20 = reshape(Model3_Km_rest_down20, [2000000, 2]);
+Model3_Km_rest_up20 = reshape(Model3_Km_rest_up20, [2000000, 2]);
+Model3_Tau1_rest_down20 = reshape(Model3_Tau1_rest_down20, [2000000, 2]);
+Model3_Tau1_rest_up20 = reshape(Model3_Tau1_rest_up20, [2000000, 2]);
+Model3_Tau2_down20 = reshape(Model3_Tau2_down20, [2000000, 2]);
+Model3_Tau2_up20 = reshape(Model3_Tau2_up20, [2000000, 2]);
+
+figure(1);
+subplot(1, 2, 1);
+plot(Model3_Original(:, 1)/1000, Model3_Original(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([0 4.5]);
+subplot(1, 2, 2);
+plot(Model3_Original(:, 1)/1000, Model3_Original(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([295.5 300]);
+ylim([0 300]);
+
+figure(2);
+subplot(1, 2, 1);
+plot(Model3_A_rest_down20(:, 1)/1000, Model3_A_rest_down20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([0 4.5]);
+subplot(1, 2, 2);
+plot(Model3_A_rest_down20(:, 1)/1000, Model3_A_rest_down20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([295.5 300]);
+ylim([0 300]);
+
+figure(3);
+subplot(1, 2, 1);
+plot(Model3_A_rest_up20(:, 1)/1000, Model3_A_rest_up20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([0 4.5]);
+subplot(1, 2, 2);
+plot(Model3_A_rest_up20(:, 1)/1000, Model3_A_rest_up20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([295.5 300]);
+ylim([0 400]);
+
+figure(4);
+subplot(1, 2, 1);
+plot(Model3_Km_rest_down20(:, 1)/1000, Model3_Km_rest_down20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([0 4.5]);
+subplot(1, 2, 2);
+plot(Model3_Km_rest_down20(:, 1)/1000, Model3_Km_rest_down20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([295.5 300]);
+ylim([0 400]);
+
+figure(5);
+subplot(1, 2, 1);
+plot(Model3_Km_rest_up20(:, 1)/1000, Model3_Km_rest_up20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([0 4.5]);
+subplot(1, 2, 2);
+plot(Model3_Km_rest_up20(:, 1)/1000, Model3_Km_rest_up20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([295.5 300]);
+ylim([0 300]);
+
+figure(6);
+subplot(1, 2, 1);
+plot(Model3_Tau1_rest_down20(:, 1)/1000, Model3_Tau1_rest_down20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([0 4.5]);
+subplot(1, 2, 2);
+plot(Model3_Tau1_rest_down20(:, 1)/1000, Model3_Tau1_rest_down20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([295.5 300]);
+ylim([0 300]);
+
+figure(7);
+subplot(1, 2, 1);
+plot(Model3_Tau1_rest_up20(:, 1)/1000, Model3_Tau1_rest_up20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([0 4.5]);
+subplot(1, 2, 2);
+plot(Model3_Tau1_rest_up20(:, 1)/1000, Model3_Tau1_rest_up20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([295.5 300]);
+ylim([0 400]);
+
+figure(8);
+subplot(1, 2, 1);
+plot(Model3_Tau2_down20(:, 1)/1000, Model3_Tau2_down20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([0 4.5]);
+subplot(1, 2, 2);
+plot(Model3_Tau2_down20(:, 1)/1000, Model3_Tau2_down20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([295.5 300]);
+ylim([0 300]);
+
+figure(9);
+subplot(1, 2, 1);
+plot(Model3_Tau2_up20(:, 1)/1000, Model3_Tau2_up20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([0 4.5]);
+subplot(1, 2, 2);
+plot(Model3_Tau2_up20(:, 1)/1000, Model3_Tau2_up20(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');
+xlim([295.5 300]);
+ylim([0 350]);
+
+figure(10);
+plot(Model3_Original(:, 1)/1000, Model3_Original(:, 2));
+xlabel('Time (s)');
+ylabel('Force (N)');

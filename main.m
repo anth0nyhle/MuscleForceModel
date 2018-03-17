@@ -2,10 +2,10 @@
 close all;
 clear;
 
-global tau_c tau_1 tau_2 A;
-% global tau_c tau_2 tau_fat A_rest K_mrest tau_1rest alpha_A alpha_K_m alpha_tau_1;
-parameters;
-% fat_parameters;
+% global tau_c tau_1 tau_2 A;
+global tau_c tau_2 tau_fat A_rest K_mrest tau_1rest alpha_A alpha_K_m alpha_tau_1;
+% parameters;
+fat_parameters;
 
 IPI = input('Interphase Interval (IPI; ms): ');
 % CFT120 = 8.3hz;
@@ -20,14 +20,14 @@ IPI = input('Interphase Interval (IPI; ms): ');
 
 stim_t = input('Stimulation duration (ms): '); % in ms
 
-t_span = [0 800];
-int = [C_N0; F_0];
-% int = [C_N0; F_0; A_rest; K_mrest; tau_1rest];
+t_span = [0 2000];
+% int = [C_N0; F_0];
+int = [C_N0; F_0; A_rest; K_mrest; tau_1rest];
 
 options = [];
 
-[t, dY] = ode45(@muscleforce_ode, t_span, int, options, IPI, stim_t); % non-fatigue model
-% [t, dY] = ode45(@muscleforcefat_ode, t_span, int, options, IPI, stim_t); % fatigue model
+% [t, dY] = ode45(@muscleforce_ode, t_span, int, options, IPI, stim_t); % non-fatigue model
+[t, dY] = ode45(@muscleforcefat_ode, t_span, int, options, IPI, stim_t); % fatigue model
 % output col vec for t
 % output 2 col matrix for dY, 1st col: C_N, 2nd col: F
 

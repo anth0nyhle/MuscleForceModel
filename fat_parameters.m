@@ -5,7 +5,7 @@ F_0 = 0;
 tau_c = 20; % in ms; time constnat controling rise and decay of C_N
 tau_1 = 50; % in ms; time constant of force decline at absence of strongly bound cross-bridges
 tau_2 = 69.5; % in ms; time constant of force decline due to extra friction b/w actin and myosin from presence of strongly bound cross-bridges
-tau_fat = 127; % in s; time constant characterising the rate of recovery
+tau_fat = 127*1000; % in s; time constant characterising the rate of recovery
 A = 3; % in N ms^-1; scaling factor for forceand shortening velocity
 
 A_rest = 3.009; % in N ms^-1
